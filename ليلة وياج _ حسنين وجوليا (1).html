@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ليلة وياج | حسنين وجوليا</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b:#14102a;--ink:#f6efff;--pur:#8b5cf6;--pn:#2a1d58;--pk:#ff7fb0;--mut:#b9a8e6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;border-radius:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--b);color:var(--ink);font-family:'Tajawal','Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent;user-select:none}
+#w{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:8px 0 calc(10px + env(safe-area-inset-bottom,0px))}
+#sc{width:min(100vw,520px);aspect-ratio:160/140;image-rendering:pixelated;image-rendering:crisp-edges;display:block;border-bottom:4px solid var(--pur)}
+#box{position:relative;width:min(94vw,500px);margin-top:34px;min-height:132px;padding:20px 20px 26px;background:var(--pn);border:4px solid var(--pur);box-shadow:inset 0 0 0 3px #1a1040,0 0 0 3px #0c0820;cursor:pointer}
+#nm{position:absolute;top:-33px;right:2px;font:800 21px 'Tajawal',sans-serif;color:#fff;text-shadow:2px 2px 0 #000,-1px -1px 0 #000;letter-spacing:.02em}
+#tx{font:700 clamp(19px,5.3vw,23px)/1.85 'Tajawal',sans-serif;text-shadow:2px 2px 0 rgba(0,0,0,.45);min-height:5em}
+#nx{position:absolute;left:14px;bottom:6px;color:var(--pk);font-size:18px;animation:bl .8s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+#ch{display:flex;flex-direction:column;gap:10px;width:min(94vw,500px);margin-top:12px}
+.cb{min-height:52px;padding:10px 18px;font:800 clamp(18px,5vw,21px) 'Tajawal',sans-serif;color:#fff;background:var(--pn);border:4px solid var(--pk);box-shadow:inset 0 0 0 3px #1a1040,0 0 0 3px #0c0820;cursor:pointer;text-align:center}
+.cb:active{background:var(--pk);color:#1a1040}
+#ov{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--b);transition:opacity .8s}
+#ov.o{opacity:0;pointer-events:none}
+#ov h1{font:800 clamp(40px,12vw,64px)/1.4 'Tajawal',sans-serif;margin:0;text-shadow:4px 4px 0 var(--pur)}
+#ov p{max-width:340px;line-height:2;font-size:19px;color:var(--mut)}
+.pb{margin-top:14px;min-height:56px;padding:10px 38px;font:800 22px 'Tajawal',sans-serif;color:#fff;background:var(--pur);border:4px solid #fff;box-shadow:4px 4px 0 #000;cursor:pointer}
+.pb:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000}
+#ctl{position:fixed;z-index:50;left:10px;top:calc(10px + env(safe-area-inset-top,0px));display:flex;gap:8px}
+#ctl>*{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:3px solid #fff;background:var(--pur);color:#fff;font-size:17px;cursor:pointer;box-shadow:3px 3px 0 #000}
+#ctl input{display:none}
+.hide{display:none!important}
+:focus-visible{outline:3px solid var(--pk);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){#nx{animation:none}}
+</style>
+</head>
+<body>
+<div id="ov"><h1>ليلة وياج</h1><p>مشهد صغير بيني وبين جوليا… بالبكسل. المسي الشاشة لتكملين الحوار.</p><button class="pb" id="go">ابدأ</button></div>
+<div id="ctl"><button id="snd" aria-label="الصوت">♪</button><label for="fi" aria-label="أغنية من جهازي">🎵</label><input id="fi" type="file" accept="audio/*"></div>
+<div id="w"><canvas id="sc"></canvas><div id="box"><div id="nm"></div><div id="tx"></div><div id="nx">▼</div></div><div id="ch"></div></div>
+<script>
+/* WA = رقم واتساب حسنين بالصيغة الدولية بدون + (مثال: '9647701234567') فيظهر بالنهاية زر يخلي جوليا ترسل ردها له بنفسها. فاضي = ما يظهر الزر. غيّري هنا: الأسماء، ولون شعرها (HAIR)، وإذا عندك صورتها: PHOTO='data:image/jpeg;base64,...' فتظهر بشكل بكسل */
+const HER='جوليا',ME='حسنين',WA='',HAIR='#4a2c36',HAIR2='#6b4150',PHOTO='';
+const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const buzz=n=>{try{navigator.vibrate&&navigator.vibrate(n||12)}catch(e){}};
+/* ===== المشهد بالبكسل ===== */
+const cv=$('sc'),c=cv.getContext('2d');cv.width=160;cv.height=140;c.imageSmoothingEnabled=false;
+const bgc=document.createElement('canvas');bgc.width=160;bgc.height=140;const b=bgc.getContext('2d');
+const BR=(x,y,w,h,col)=>{b.fillStyle=col;b.fillRect(x,y,w,h)};
+const R=(x,y,w,h,col)=>{c.fillStyle=col;c.fillRect(x|0,y|0,w|0,h|0)};
+function E(cx,cy,rx,ry,col){c.fillStyle=col;for(let y=-ry;y<=ry;y++){const w=Math.round(rx*Math.sqrt(1-(y*y)/(ry*ry)));c.fillRect(cx-w,cy+y,w*2+1,1)}}
+const stars=[];
+(function(){BR(0,0,160,140,'#4a2a50');
+ [26,80,134].forEach(cx=>{for(let pass=0;pass<2;pass++){const o=pass?0:3;for(let y=8-o;y<92;y++){let hw=17+o;if(y<26){const d=26-y;hw=Math.round(Math.sqrt(Math.max(0,(17+o)*(17+o)-d*d)))}if(hw>0)BR(cx-hw,y,hw*2,1,pass?'#2c2766':'#6e3560')}}
+  BR(cx-1,26,2,66,'#6e3560');BR(cx-17,52,34,2,'#6e3560');
+  for(let k=0;k<9;k++){const sx=cx-14+((k*13)%28),sy=14+((k*29)%70);stars.push([sx,sy,k])}});
+ BR(0,90,160,6,'#38213f');BR(0,96,160,44,'#58476f');
+ for(let y=96;y<140;y+=11){BR(0,y,160,1,'#4b3b61')}for(let x=-40;x<200;x+=26){for(let y=96;y<140;y++){const sx=x+(y-96)*(x-80)/60;BR(sx|0,y,1,1,'#4b3b61')}}
+})();
+function person(x,y,hair,top,bot,long,bob){y+=bob;E(x,y-31,4,5,'#f2d3c0');R(x-5,y-37,10,4,hair);if(long){R(x-5,y-34,2,18,hair);R(x+4,y-34,2,18,hair)}R(x-5,y-25,10,14,top);R(x-7,y-25,2,12,top);R(x+5,y-25,2,12,top);R(x-4,y-11,3,11,bot);R(x+1,y-11,3,11,bot);R(x-5,y,4,2,'#16101c');R(x+1,y,4,2,'#16101c');R(x-1,y-26,2,2,'#fff')}
+const hearts=[];function heart(x,y){const s=['.##.##.','#######','#######','.#####.','..###..','...#...'];s.forEach((r,j)=>[...r].forEach((p,i)=>{if(p==='#')R(x+i,y+j,1,1,'#ff7fb0')}))}
+let EX='n',tm=0,photoC=null;
+if(PHOTO){const im=new Image();im.onload=()=>{photoC=document.createElement('canvas');photoC.width=44;photoC.height=56;const p=photoC.getContext('2d');p.imageSmoothingEnabled=false;const r=Math.min(im.width/44,im.height/56);p.drawImage(im,(im.width-44*r)/2,(im.height-56*r)/2,44*r,56*r,0,0,44,56);const d=p.getImageData(0,0,44,56);for(let k=0;k<d.data.length;k++)d.data[k]=Math.round(d.data[k]/40)*40;p.putImageData(d,0,0)};im.src=PHOTO}
+function julia(t){const blink=(t%3200)<130,E_=blink&&EX!=='h'?'c':EX,D='#2b1520';
+ E(40,76,36,44,HAIR);R(4,76,72,64,HAIR);E(40,152,52,36,'#6a3b8a');R(0,128,16,12,'#6a3b8a');
+ for(let y=112;y<134;y++){const w=Math.round(16-(y-112)*.5);R(40-w,y,w*2,1,'#fff')}for(let y=116;y<132;y++){const w=Math.round(7-(y-116)*.4);R(40-w,y,w*2,1,'#9b5fc0')}
+ R(34,102,12,12,'#e0b8a6');
+ if(photoC){c.drawImage(photoC,18,38,44,56);}else{
+ E(40,76,23,28,'#f6dccb');
+ R(14,50,52,10,HAIR);R(18,46,44,6,HAIR);R(14,52,8,44,HAIR);R(58,52,8,44,HAIR);R(22,56,10,6,HAIR2);R(46,56,12,5,HAIR2);R(30,60,6,4,HAIR);
+ const eye=(x)=>{if(E_==='c'||E_==='s'){R(x-4,79,9,2,D);R(x-5,78,2,2,D);R(x+4,78,2,2,D)}else if(E_==='h'){const h=['.#.#.','#####','#####','.###.','..#..'];h.forEach((r,j)=>[...r].forEach((p,i)=>{if(p==='#')R(x-2+i,75+j,1,1,'#ff5c93')}))}else{R(x-4,75,9,7,'#fff');R(x-2,75,5,7,'#5e8a78');R(x-1,76,2,3,D);R(x-5,73,11,2,D);R(x-6,75,2,2,D)}};
+ eye(31);eye(51);
+ const bl=(EX==='b'||EX==='h')?'#ee7f9d':'#f3a9b8';R(22,87,10,4,bl);R(50,87,10,4,bl);
+ R(40,86,2,2,'#d4a08c');
+ if(E_==='q'){R(37,93,6,4,'#8a2f48')}else if(EX==='s'||EX==='b'||EX==='h'){R(35,92,2,2,'#b04a62');R(37,94,6,2,'#b04a62');R(43,92,2,2,'#b04a62')}else R(36,93,8,2,'#b04a62');
+ R(60,50,6,6,'#ff8fb1');R(62,52,2,2,'#ffe27a')}
+}
+function frame(t){requestAnimationFrame(frame);if(document.hidden)return;
+ c.drawImage(bgc,0,0);stars.forEach(s=>{if((Math.sin(t*.002+s[2]*2)>.2))R(s[0],s[1],1,1,'#fff6c8')});
+ const bob=reduce?0:Math.round(Math.sin(t*.003));person(100,128,'#2a1a1c','#1e1e30','#2b2b3d',false,bob);person(122,128,'#3b2330','#6a3b8a','#2b2b3d',true,reduce?0:Math.round(Math.sin(t*.003+1)));
+ julia(t);
+ hearts.forEach(h=>{h.y-=.4;h.x+=Math.sin(t*.004+h.p)*.3;heart(h.x|0,h.y|0)});for(let k=hearts.length-1;k>=0;k--)if(hearts[k].y<-8)hearts.splice(k,1)}
+function burstH(n){for(let k=0;k<n;k++)hearts.push({x:10+Math.random()*130,y:130+Math.random()*10,p:Math.random()*6})}
+requestAnimationFrame(frame);
+/* ===== الحوار ===== */
+const S=[
+ ['h','جوليا… تعالي، أريد أحجي وياج شغلة.','n'],
+ ['j','خير؟ شنو صاير؟','q'],
+ ['h','ولا شي مخيف… بس صار لي وكت أريد أقولج شي، وبالأخير تحمّست.','n'],
+ ['j','كول، أنا أسمعك.','s'],
+ ['h','أنتِ دخلتي حياتي وغيّرتي أشياء ما كنت أنتبه إنها ناقصة.','s'],
+ ['h','الصبح أحلى لما أعرف إنج بالدنيا، والليل أهدى لما أحجي وياج.','s'],
+ ['j','حسنين… خلّيت وجهي أحمر 😳','b'],
+ ['h','وعد مني: أحترمج، أسمعج، وأكون جنبج بالصعب قبل الحلو.','n'],
+ ['h','بس قبل لا أكمل… شنو تريدين مني أنتِ؟','q',[['اهتمام بالتفاصيل',['j','اهتمامك بالتفاصيل الصغيرة… هذا اللي يخليني أرتاح وياك.','s']],['صراحة دائماً',['j','الصراحة وياك مرتاحة، لأنك ما تلف وتدور.','s']],['وقت وياي',['j','وقتك الحلو… أبي هواي منه.','b']]]],
+ ['h','تدرين؟ كل شي أسويه إلج هو لأنج تستاهلين الأحسن.','s'],
+ ['h','فاسمعي جملة وحدة، من القلب: أحبّج يا جوليا.','h'],
+ ['j','…','b',[['وأنا أحبك بعد 💗',['j','وأنا أحبك أكثر مما تتخيل… وخلّيك دائماً هيج.','h']],['بعدين أكلك 😄',['j','(تضحك) هذا جوابي الرسمي… وأحبك وبس.','h']]]],
+ ['h','هذا وعدي… ولآخر يوم. 💜','h']];
+let ans=[],i=-1,typing=false,tmr=0,full='',busy=false;
+function blip(){if(!ac||mut||ac.state!=='running')return;const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=480+Math.random()*220;g.gain.setValueAtTime(.04,t);g.gain.exponentialRampToValueAtTime(.0001,t+.05);o.connect(g);g.connect(mst);o.start(t);o.stop(t+.06)}
+function say(l){$('ch').innerHTML='';$('nm').textContent=l[0]==='h'?ME:HER;$('nm').style.color=l[0]==='h'?'#9ec5ff':'#ffb3d0';EX=l[2];if(EX==='h'||EX==='b')burstH(EX==='h'?10:4);
+ full=l[1];$('tx').textContent='';typing=true;let k=0;clearInterval(tmr);$('nx').classList.add('hide');
+ tmr=setInterval(()=>{k++;$('tx').textContent=full.slice(0,k);if(k%2===0)blip();if(k>=full.length){clearInterval(tmr);typing=false;fin(l)}},reduce?1:32)}
+function fin(l){if(l[3]){const w=$('ch');w.innerHTML='';l[3].forEach(o=>{const bt=document.createElement('button');bt.className='cb';bt.textContent=o[0];bt.onclick=e=>{e.stopPropagation();buzz();sfxPick();ans.push(o[0]);w.innerHTML='';say(o[1]);i=Math.max(i,-1)};w.appendChild(bt)});$('nx').classList.add('hide')}else if(i<S.length-1)$('nx').classList.remove('hide');else{$('nx').classList.add('hide');burstH(30);buzz([30,50,30]);if(WA){const w=$('ch');const a=document.createElement('a');a.className='cb';a.style.display='block';a.style.textDecoration='none';a.target='_blank';a.rel='noopener';a.textContent='ابعثي ردج لـ'+ME+' 💌';a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(HER+' تكول: '+(ans.length?ans.join(' / '):'وصلتني رسالتك')+' 💜');w.appendChild(a)}}}
+function next(){if(busy)return;if(typing){clearInterval(tmr);typing=false;$('tx').textContent=full;fin(S[i]||['','','n']);return}if($('ch').children.length)return;if(i>=S.length-1)return;i++;say(S[i])}
+$('box').onclick=next;$('sc').onclick=next;addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter')next()});
+/* ===== صوت: موسيقى 8-بت + مؤثرات ===== */
+let ac,mst,nt=0,stp=0,mut=false,song=null,pendF=null;
+const hz=n=>440*Math.pow(2,n/12),LEAD=[[7,-9,3,-9,5,7,3,-9],[8,-9,5,-9,7,8,5,-9],[10,-9,7,-9,8,10,7,-9],[12,10,8,7,5,3,0,-9]],BASS=[-24,-28,-21,-26],CH=[[0,3,7],[-4,0,3],[3,7,10],[-2,2,5]];
+function tn(f,t,d,v,ty){const o=ac.createOscillator(),g=ac.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.setValueAtTime(v,t+d*.7);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mst);o.start(t);o.stop(t+d+.02)}
+function sch(){if(!ac||mut||song||ac.state!=='running')return;const SD=60/96/2;while(nt<ac.currentTime+.2){const s=stp%8,bar=Math.floor(stp/8)%4;const n=LEAD[bar][s];if(n>-9)tn(hz(n),nt,SD*1.6,.045,'square');
+ if(s%4===0)tn(hz(BASS[bar]),nt,SD*3.5,.12,'triangle');if(s%2===0)tn(hz(CH[bar][(s/2)%3]-12),nt,SD*1.8,.02,'square');
+ if(s%2===1){const b=ac.createBufferSource();b.buffer=nbuf();const g=ac.createGain(),f=ac.createBiquadFilter();f.type='highpass';f.frequency.value=7000;g.gain.setValueAtTime(.025,nt);g.gain.exponentialRampToValueAtTime(.0001,nt+.04);b.connect(f);f.connect(g);g.connect(mst);b.start(nt);b.stop(nt+.05)}
+ nt+=SD;stp++}}
+let nb;const nbuf=()=>{if(!nb){nb=ac.createBuffer(1,ac.sampleRate/4,ac.sampleRate);const d=nb.getChannelData(0);for(let k=0;k<d.length;k++)d[k]=Math.random()*2-1}return nb};
+function sfxPick(){if(!ac||mut||ac.state!=='running')return;const t=ac.currentTime;[0,4,7,12].forEach((q,k)=>tn(hz(q+12),t+k*.06,.2,.05,'square'))}
+function startAudio(){if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)();ac.resume();mst=ac.createGain();mst.gain.value=.9;mst.connect(ac.destination);nt=ac.currentTime+.1;setInterval(sch,40)}catch(e){ac=null}}if(pendF)useFile(pendF)}
+function useFile(f){if(song)song.pause();song=new Audio(URL.createObjectURL(f));song.loop=true;mut=false;song.play().catch(()=>{})}
+$('fi').onchange=e=>{const f=e.target.files[0];if(!f)return;if(!ac){pendF=f;return}useFile(f)};
+$('snd').onclick=()=>{mut=!mut;if(song)mut?song.pause():song.play();else if(ac&&!mut)nt=ac.currentTime+.1;$('snd').textContent=mut?'✕':'♪'};
+$('go').onclick=()=>{startAudio();buzz(25);$('ov').classList.add('o');setTimeout(()=>$('ov').classList.add('hide'),900);sfxPick();setTimeout(next,500)};
+</script>
+</body>
+</html>

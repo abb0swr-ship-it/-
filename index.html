@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0b0030">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حديقة وياج | حسنين وجوليا</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b:#0b0030;--ink:#fff4ff;--pur:#a23cff;--pn:#1e0a48;--pk:#ff3d9a;--mut:#d0b8ff;--W:min(100vw,calc((100vh - 340px)*.8889),680px)}
+@supports (height:100dvh){:root{--W:min(100vw,calc((100dvh - 340px)*.8889),680px)}}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;height:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 0,#2e0a68 0,#12063a 55%,#0b0030 100%);color:var(--ink);font-family:'Amiri','Tajawal','Segoe UI',serif;-webkit-tap-highlight-color:transparent;user-select:none}
+#w{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(6px + env(safe-area-inset-top,0px)) 0 calc(8px + env(safe-area-inset-bottom,0px))}
+#hd{width:var(--W);height:clamp(46px,calc(var(--W)*.085),58px);display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+#ttl{font:700 clamp(26px,calc(var(--W)*.06),38px)/1 'Aref Ruqaa','Amiri',serif;color:#fff;text-shadow:0 0 8px #ff3d9a,0 0 20px #a23cff}
+#ctl{display:flex;gap:8px}
+#ctl>*{width:clamp(40px,calc(var(--W)*.08),52px);height:clamp(40px,calc(var(--W)*.08),52px);display:flex;align-items:center;justify-content:center;border:3px solid #fff;background:var(--pur);color:#fff;font-size:clamp(17px,calc(var(--W)*.034),23px);cursor:pointer;box-shadow:0 0 12px #a23cff,3px 3px 0 #000;font-family:inherit;padding:0}
+#sw{position:relative;width:var(--W)}
+#sc{width:100%;aspect-ratio:320/360;image-rendering:pixelated;image-rendering:crisp-edges;display:block;border:4px solid var(--pur);box-shadow:0 0 28px #a23cff99}
+#ch{position:absolute;left:clamp(10px,calc(var(--W)*.025),18px);right:clamp(10px,calc(var(--W)*.025),18px);bottom:clamp(10px,calc(var(--W)*.025),18px);display:flex;flex-direction:column;gap:clamp(8px,calc(var(--W)*.016),12px);z-index:5}
+#box{position:relative;width:calc(var(--W) - 16px);margin-top:clamp(40px,calc(var(--W)*.075),52px);padding:clamp(18px,calc(var(--W)*.04),28px) clamp(18px,calc(var(--W)*.045),32px) clamp(22px,calc(var(--W)*.05),32px);background:linear-gradient(180deg,#2a1262,var(--pn));border:4px solid var(--pur);box-shadow:inset 0 0 0 3px #14003a,0 0 0 3px #0c0820,0 0 22px #a23cff88;cursor:pointer}
+#nm{position:absolute;top:0;right:18px;transform:translateY(-64%);padding:0 18px;font:700 clamp(24px,calc(var(--W)*.055),34px)/1.55 'Aref Ruqaa','Amiri',serif;color:#fff;background:#1a0640;border:3px solid currentColor;box-shadow:0 0 14px currentColor,3px 3px 0 #000;text-shadow:0 0 8px currentColor}
+#nm:empty{display:none}
+#tx{font:700 clamp(22px,calc(var(--W)*.058),33px)/1.95 'Amiri','Aref Ruqaa',serif;text-shadow:2px 2px 0 rgba(0,0,0,.45);height:5.85em;overflow:hidden}
+#nx{position:absolute;left:16px;bottom:8px;color:var(--pk);font-size:clamp(18px,calc(var(--W)*.036),24px);animation:bl .8s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+#pg{display:flex;gap:clamp(7px,calc(var(--W)*.014),10px);margin-top:clamp(12px,calc(var(--W)*.025),18px);height:clamp(12px,calc(var(--W)*.03),16px);align-items:center}
+#pg i{width:clamp(11px,calc(var(--W)*.024),15px);height:clamp(11px,calc(var(--W)*.024),15px);background:#2a1058;border:2px solid #6a30b8}
+#pg i.on{background:var(--pk);border-color:#fff;box-shadow:0 0 8px var(--pk)}
+.cb{min-height:clamp(44px,calc(var(--W)*.082),56px);padding:4px 16px;font:700 clamp(19px,calc(var(--W)*.046),26px) 'Aref Ruqaa','Amiri',serif;color:#fff;background:rgba(30,10,72,.9);border:4px solid var(--pk);box-shadow:inset 0 0 0 3px #14003a,0 0 0 3px #0c0820,0 0 16px #a23cff;cursor:pointer;text-align:center}
+.cb:active{background:var(--pk);color:#1a1040}
+/* ===== شاشة الدخول: بوابة الحديقة ===== */
+#ov{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1.4vh,14px);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));overflow:hidden;text-align:center;background:linear-gradient(180deg,#040a1f 0,#0a1a45 34%,#12406a 66%,#1b6a78 88%,#2a8a7a 100%);transition:opacity .9s}
+#ov.o{opacity:0;pointer-events:none}
+#oc{position:absolute;inset:0;width:100%;height:100%;display:block}
+#ov>*:not(#oc){position:relative;z-index:1}
+#tag{font:700 clamp(18px,4.2vw,24px) 'Aref Ruqaa','Amiri',serif;color:#ffe2a0;letter-spacing:.06em;text-shadow:0 0 10px #ffb347}
+#ov h1{margin:0;font:700 clamp(52px,15vw,96px)/1.2 'Aref Ruqaa','Amiri',serif;background:linear-gradient(180deg,#fffbe0 0,#ffd36a 48%,#d9942a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 14px #ffb34788) drop-shadow(3px 3px 0 #3a1a10)}
+#gate{position:relative;flex:none;width:min(82vw,400px,calc((100vh - 400px)*.95));min-width:220px;aspect-ratio:1/1.05;perspective:900px}
+#gate canvas{width:100%;height:100%;display:block;image-rendering:pixelated}
+#gl{position:absolute;left:17%;right:17%;top:26%;bottom:0;background:radial-gradient(ellipse at 50% 85%,#ffe7a8 0,#ffb36a 28%,#c0507a 58%,#3a2a7a 100%);opacity:.5;transition:opacity 1.4s}
+#ov.op #gl{opacity:1}
+.pl{position:absolute;top:0;bottom:0;width:17%}
+#pl1{left:0}#pl2{right:0}
+.lg{position:absolute;left:50%;top:6.5%;width:280%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,#ffb34799 0,#ffb34722 40%,transparent 68%);animation:fk 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes fk{0%,100%{opacity:.75}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+#ar{position:absolute;left:17%;right:17%;top:15%;height:12%}
+.lf{position:absolute;top:26%;bottom:0;width:33%;transition:transform 1.5s cubic-bezier(.3,.7,.2,1)}
+#lf1{left:17%;transform-origin:left center}
+#lf2{right:17%;transform-origin:right center}
+#ov.op #lf1{transform:rotateY(-80deg)}
+#ov.op #lf2{transform:rotateY(80deg)}
+#ov p{max-width:440px;margin:0;font:700 clamp(21px,5vw,26px)/1.8 'Amiri',serif;color:#e8f0ff;text-shadow:0 0 10px #12406a}
+.pb{position:relative;margin-top:4px;min-height:64px;padding:8px 44px;font:700 clamp(26px,6.2vw,34px) 'Aref Ruqaa','Amiri',serif;color:#ffe9a8;background:rgba(6,12,40,.82);border:4px solid #e8b84a;box-shadow:inset 0 0 0 3px #3a2a10,0 0 22px #ffb34766,4px 4px 0 #000;cursor:pointer;animation:pu 1.9s ease-in-out infinite}
+@keyframes pu{0%,100%{box-shadow:inset 0 0 0 3px #3a2a10,0 0 14px #ffb34744,4px 4px 0 #000}50%{box-shadow:inset 0 0 0 3px #3a2a10,0 0 40px #ffb347cc,4px 4px 0 #000}}
+.pb:active{transform:translate(3px,3px)}
+.pb:disabled{opacity:.7}
+#ov small{font:700 clamp(17px,4vw,21px) 'Amiri',serif;color:#a8c4e8}
+/* ===== كلمة من قلبي ===== */
+@keyframes cin{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+#wish{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(6,0,24,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#wc{width:min(90vw,520px);padding:clamp(20px,4vh,34px) clamp(16px,4vw,30px);text-align:center;background:linear-gradient(180deg,#2a1262,var(--pn));border:4px solid var(--pk);box-shadow:inset 0 0 0 3px #14003a,0 0 0 3px #0c0820,0 0 36px #ff3d9a88;animation:cin .4s ease-out both}
+#wn{font:700 clamp(18px,4.4vw,24px) 'Aref Ruqaa','Amiri',serif;color:#7af0ff;text-shadow:0 0 10px #2ee6ff;margin-bottom:8px}
+#wt{font:700 clamp(23px,6.2vw,32px)/1.95 'Amiri','Aref Ruqaa',serif;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.5);min-height:4em;display:flex;align-items:center;justify-content:center}
+#wb{margin-top:10px;width:100%}
+#toast{position:fixed;z-index:60;left:50%;top:calc(72px + env(safe-area-inset-top,0px));transform:translateX(-50%);padding:8px 18px;background:var(--pn);border:3px solid var(--pk);color:#fff;font:700 21px 'Aref Ruqaa','Amiri',serif;box-shadow:0 0 16px #ff3d9a;opacity:0;pointer-events:none;transition:opacity .3s;white-space:nowrap}
+#toast.s{opacity:1}
+.hide{display:none!important}
+:focus-visible{outline:3px solid var(--pk);outline-offset:3px}
+/* ===== شاشة عريضة (تابلت أفقي / كمبيوتر) ===== */
+@media (min-aspect-ratio:13/10) and (min-width:720px){
+ :root{--W:min(50vw,calc((100vh - 130px)*.8889),700px)}
+ @supports (height:100dvh){:root{--W:min(50vw,calc((100dvh - 130px)*.8889),700px)}}
+ #w{display:grid;grid-template-columns:var(--W) minmax(300px,1fr);grid-template-rows:auto 1fr auto auto 1fr;grid-template-areas:"hd hd" "sw ." "sw box" "sw pg" "sw .";column-gap:2.5vw;place-content:center;padding:1.5vh 3vw}
+ #hd{grid-area:hd;width:100%}
+ #sw{grid-area:sw}
+ #box{grid-area:box;width:100%;margin-top:0}
+ #pg{grid-area:pg;justify-self:center}
+ #tx{height:4.4em}
+}
+@media (prefers-reduced-motion:reduce){#nx,.pb,.lg{animation:none}.lf{transition:none}}
+</style>
+</head>
+<body>
+<div id="ov"><canvas id="oc"></canvas><div id="tag">✦ بوابة الحديقة ✦</div><h1>حديقة وياج</h1>
+<div id="gate"><div id="gl"></div>
+<div class="lf" id="lf1"><canvas id="lc1"></canvas></div><div class="lf" id="lf2"><canvas id="lc2"></canvas></div>
+<div id="ar"><canvas id="ac"></canvas></div>
+<div class="pl" id="pl1"><canvas id="pc1"></canvas><i class="lg"></i></div><div class="pl" id="pl2"><canvas id="pc2"></canvas><i class="lg"></i></div></div>
+<p>ليلة هادئة… وقمر… وكلمات صغيرة من قلبي.</p><button class="pb" id="go">ادفعي البوابة 🌹</button><small>🔊 شغّلي الصوت لتكتمل التجربة</small></div>
+<div id="wish" class="hide"><div id="wc"><div id="wn"></div><div id="wt"></div><button class="cb" id="wb">كلمة ثانية 🎲</button></div></div>
+<div id="toast">لا يمكنك تغييره 🔒</div>
+<div id="w">
+ <div id="hd"><div id="ttl">🌙 حديقة وياج</div><div id="ctl"><button id="snd" aria-label="الصوت">♪</button><button id="wsh" aria-label="كلمة من قلبي">💌</button><button id="lk" aria-label="الصوت مقفل">🎵</button><button id="ap" aria-label="تشغيل تلقائي">⏵</button><button id="fs" aria-label="ملء الشاشة">⛶</button></div></div>
+ <div id="sw"><canvas id="sc"></canvas><div id="ch"></div></div>
+ <div id="box"><div id="nm"></div><div id="tx"></div><div id="nx">▼</div></div>
+ <div id="pg"></div>
+</div>
+<script>
+/* الصوت: ضع ملفات الصوت بنفس مجلد الصفحة (أو بنفس مكان رفعها بالموقع) بهذي الأسماء بالضبط: music = الأغنية، meow = صوت البزونة. الامتداد يلقاه لحاله (mp3 أو m4a أو ogg أو wav) مثلاً music.mp3 و meow.mp3. إذا الملف مو موجود يستخدم موسيقى ومواء مصنوعين بالكود. */
+/* CATSIZE = حجم البزونة (1 صغيرة، 1.5 متوسطة، 2 كبيرة). */
+/* WA = رقم واتساب حسنين بالصيغة الدولية بدون + (مثال: '9647701234567') فيظهر بالنهاية زر يخلي جوليا ترسل ردها له بنفسها. فاضي = ما يظهر الزر. MUSIC = اسم ملف الموسيقى (ضعه بجنب الصفحة بنفس المجلد). HAIR/SKIN = لون شعرها وبشرتها، BHAIR/BSKIN = شعرك وبشرتك، وBEARD = لحيتك (0 بدون، 1 خفيفة، 2 مرتبة). PHOTO = صورتها base64 */
+const HER='جوليا',ME='حسنين',WA='',MUSIC='music',MEOW='meow',CATSIZE=1.5,HAIR='#5a1f6a',HAIR2='#ff5ac8',HAIR3='#2a0a48',SKIN='#f8dccb',BHAIR='#141010',BSKIN='#c98d66',BEARD=1,PHOTO='';
+const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const buzz=n=>{try{navigator.vibrate&&navigator.vibrate(n||12)}catch(e){}};
+/* ===== المشهد بالبكسل (دقة ٣٢٠×٢٨٠) ===== */
+const cv=$('sc'),c=cv.getContext('2d');cv.width=320;cv.height=360;c.imageSmoothingEnabled=false;
+const bgc=document.createElement('canvas');bgc.width=160;bgc.height=180;const b=bgc.getContext('2d');
+const BR=(x,y,w,h,col)=>{b.fillStyle=col;b.fillRect(x,y,w,h)};
+const R=(x,y,w,h,col)=>{c.fillStyle=col;c.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))};
+function E(cx,cy,rx,ry,col){c.fillStyle=col;for(let y=-ry;y<=ry;y++){const w=Math.round(rx*Math.sqrt(1-(y*y)/(ry*ry)));c.fillRect(cx-w,cy+y,w*2+1,1)}}
+function PG(p,col){c.fillStyle=col;let y0=Infinity,y1=-Infinity;p.forEach(q=>{y0=Math.min(y0,q[1]);y1=Math.max(y1,q[1])});for(let y=Math.floor(y0);y<=y1;y++){const xs=[];for(let i=0;i<p.length;i++){const a=p[i],d=p[(i+1)%p.length];if((a[1]<=y&&d[1]>y)||(d[1]<=y&&a[1]>y))xs.push(a[0]+(y-a[1])*(d[0]-a[0])/(d[1]-a[1]))}xs.sort((m,n)=>m-n);for(let k=0;k+1<xs.length;k+=2){const x0=Math.round(xs[k]);c.fillRect(x0,y,Math.max(1,Math.round(xs[k+1])-x0),1)}}}
+function LN(x0,y0,x1,y1,col,w){c.fillStyle=col;const dx=Math.abs(x1-x0),dy=Math.abs(y1-y0),sx=x0<x1?1:-1,sy=y0<y1?1:-1;let er=dx-dy,x=x0,y=y0;for(let n=0;n<400;n++){c.fillRect(Math.round(x),Math.round(y),w,w);if(Math.abs(x-x1)<1&&Math.abs(y-y1)<1)break;const e2=2*er;if(e2>-dy){er-=dy;x+=sx}if(e2<dx){er+=dx;y+=sy}}}
+const stars=[],rnd=(()=>{let s=11;return()=>(s=(s*16807)%2147483647)/2147483647})();
+function EB(cx,cy,rx,ry,col){b.fillStyle=col;for(let y=-ry;y<=ry;y++){const w=Math.round(rx*Math.sqrt(1-(y*y)/(ry*ry)));b.fillRect(cx-w,cy+y,w*2+1,1)}}
+(function(){b.translate(0,40);const band=(y0,y1,cols)=>{const h=(y1-y0)/cols.length;cols.forEach((q,j)=>BR(0,Math.round(y0+j*h),160,Math.ceil(h)+1,q))};
+ band(-40,66,['#04001a','#080026','#0b0030','#1c0050','#3a0a78','#7a12a0','#c81e8c','#ff5a7a']);
+ for(let q=0;q<60;q++)BR(Math.floor(rnd()*160),Math.floor(rnd()*100)-40,1,1,q%5?'#ffffff':'#7af0ff');
+ EB(140,4,24,24,'#5a1aa0');EB(140,4,20,20,'#8a2ad0');EB(140,4,17,17,'#fff06a');EB(140,4,14,14,'#fff8b0');
+ [[134,-1,3,3],[146,8,4,4],[140,13,2,2],[132,9,2,2],[147,-2,2,2]].forEach(q=>EB(q[0],q[1],q[2],q[3],'#ffc93c'));
+ [[30,16,10,4],[38,14,8,5],[22,17,7,3],[108,30,11,4],[118,28,8,5],[100,31,7,3]].forEach(q=>EB(q[0],q[1],q[2],q[3],'#6a1a9a'));
+ for(let x=-6;x<170;x+=11)EB(x,66,9+rnd()*5,13+rnd()*6,rnd()<.5?'#0a6a7a':'#0a4a6a');for(let x=0;x<170;x+=9)EB(x,72,8,8,'#0a9a9a');
+ BR(0,72,160,2,'#18b8d8');BR(0,82,160,2,'#18b8d8');for(let x=0;x<160;x+=5){BR(x,67,3,19,'#7ae8ff');BR(x+1,66,1,1,'#7ae8ff')}
+ for(let x=0;x<170;x+=7){EB(x,90,6,6,'#00a878');EB(x+2,88,3,3,'#13d09a')}
+ BR(22,70,6,36,'#5a2a5a');BR(24,70,2,36,'#7a3a7a');EB(26,52,26,20,'#ff3d9a');EB(12,60,16,14,'#e82a8a');EB(42,58,16,14,'#ff6ec7');EB(26,42,16,10,'#ff9ad5');
+ for(let q=0;q<70;q++){const x=4+Math.floor(rnd()*46),y=34+Math.floor(rnd()*36);BR(x,y,2,2,['#ffffff','#ff2d8a','#ffd0ec'][q%3])}
+ BR(106,54,4,52,'#e6d8ff');BR(134,54,4,52,'#e6d8ff');for(let a=0;a<=Math.PI;a+=.05){const x=122+Math.round(16*Math.cos(a)),y=56-Math.round(11*Math.sin(a));BR(x-1,y-1,3,3,'#e6d8ff')}
+ for(let q=0;q<46;q++){const a=Math.PI*q/45,x=122+Math.round(17*Math.cos(a))+Math.floor(rnd()*3)-1,y=56-Math.round(12*Math.sin(a))+Math.floor(rnd()*4)-1;BR(x,y,3,3,q%3?'#ff1f5a':'#ff6a9a');BR(x+1,y+3,2,2,'#00d68a')}
+ for(let y=60;y<104;y+=5){BR(104,y,3,3,'#ff1f5a');BR(136,y+2,3,3,'#ff6a9a');BR(106,y+1,2,3,'#00d68a');BR(135,y,2,3,'#00d68a')}
+ band(92,140,['#0a8a6a','#087a62','#066a58','#055a4c','#044a40']);for(let q=0;q<160;q++){const x=Math.floor(rnd()*160),y=94+Math.floor(rnd()*46);BR(x,y,1,2,'#17d49a')}
+ for(let y=96;y<140;y++){const cx=60+Math.round(7*Math.sin(y*.07)),w=Math.round(9+(y-96)*.7);BR(cx-w,y,w*2,1,'#8a4ae0');BR(cx-w,y,1,1,'#6a30b8');BR(cx+w-1,y,1,1,'#6a30b8');if(y%7===0)BR(cx-w,y,w*2,1,'#a566ff')}
+ EB(88,102,19,5,'#7a8aff');EB(88,101,16,4,'#26e0ff');BR(86,89,5,12,'#c0b8ff');EB(88,89,8,2,'#7a8aff');EB(88,88,5,1,'#26e0ff');BR(80,101,16,1,'#8af4ff');
+ BR(120,108,32,3,'#a83a6a');BR(120,100,32,2,'#a83a6a');BR(120,103,32,1,'#c84a80');BR(121,111,2,9,'#6a1a40');BR(149,111,2,9,'#6a1a40');BR(121,100,2,10,'#6a1a40');BR(149,100,2,10,'#6a1a40');
+ BR(8,98,2,24,'#3a1a6a');BR(5,121,8,2,'#3a1a6a');EB(9,96,4,4,'#ffd23a');EB(9,96,2,2,'#fff6b0');
+ for(let q=0;q<150;q++){const x=Math.floor(rnd()*160),y=114+Math.floor(rnd()*26);BR(x,y,1,3,'#0fb87a');BR(x-1,y-2,3,2,['#ff2d8a','#ffe23a','#ffffff','#9a5aff','#ff7a2a'][q%5])}
+ for(let q=0;q<26;q++)stars.push([rnd()*160,100+rnd()*78,q]);for(let q=0;q<40;q++)stars.push([rnd()*160,2+rnd()*100,q+26])})();
+function person(x,y,hair,top,bot,long,bob,skin){y+=bob;E(x,y-31,4,5,skin);R(x-5,y-37,10,4,hair);R(x-5,y-34,1,3,hair);R(x+4,y-34,1,3,hair);if(long){R(x-5,y-34,2,18,hair);R(x+4,y-34,2,18,hair)}R(x-2,y-31,1,1,'#2a1a1c');R(x+1,y-31,1,1,'#2a1a1c');R(x-5,y-25,10,14,top);R(x-7,y-25,2,12,top);R(x+5,y-25,2,12,top);R(x-4,y-11,3,11,bot);R(x+1,y-11,3,11,bot);R(x-5,y,4,2,'#16101c');R(x+1,y,4,2,'#16101c');R(x-1,y-26,2,2,'#fff')}
+const HS=['.##.##.','#######','#######','.#####.','..###..','...#...'];
+function HT(x,y,col,s){HS.forEach((r,j)=>[...r].forEach((p,i)=>{if(p==='#')R(x+i*s,y+j*s,s,s,col)}))}
+const hearts=[],fw=[];let ss=null,gave=false,giveT=-1e9,auto=false;
+const lan=Array.from({length:5},(_,k)=>({x:176+rnd()*134,y:80+rnd()*270,v:.16+rnd()*.2,p:rnd()*6,c:['#ffb347','#ff7ac0','#7af0ff'][k%3]}));
+let meowT=-9999,EX='n',who='h',px=-180,photoC=null;
+if(PHOTO){const im=new Image();im.onload=()=>{photoC=document.createElement('canvas');photoC.width=60;photoC.height=76;const p=photoC.getContext('2d');p.imageSmoothingEnabled=false;const r=Math.min(im.width/60,im.height/76);p.drawImage(im,(im.width-60*r)/2,(im.height-76*r)/2,60*r,76*r,0,0,60,76);const d=p.getImageData(0,0,60,76);for(let k=0;k<d.data.length;k++)d.data[k]=Math.round(d.data[k]/32)*32;p.putImageData(d,0,0)};im.src=PHOTO}
+/* ===== جوليا: ملامح مفصّلة ===== */
+function julia(t){const e=((t%3400)<140&&EX!=='h')?'c':EX,D='#2a1520',SK=SKIN,SS='#e3b8a4',bs=(EX==='b'||EX==='h');
+ E(90,150,68,86,HAIR3);R(22,150,136,130,HAIR3);for(let k=0;k<8;k++)LN(34+k*16,176,30+k*17,276,HAIR,2);
+ E(90,312,106,80,'#a23cff');R(0,252,34,28,'#a23cff');PG([[60,226],[120,226],[90,270]],'#fff');PG([[70,226],[110,226],[90,258]],'#f4e8ff');
+ PG([[90,240],[68,228],[68,250]],'#ff2d8a');PG([[90,240],[112,228],[112,250]],'#ff2d8a');R(85,234,10,11,'#ff1f6a');R(66,252,2,18,'#6a1fb0');R(112,252,2,18,'#6a1fb0');
+ R(79,202,22,28,SS);R(79,202,22,9,'#cf9a86');
+ if(photoC){c.drawImage(photoC,52,92,76,96);}else{
+ E(90,150,46,56,SK);PG([[46,160],[134,160],[120,200],[60,200]],SK);E(90,196,29,10,SK);
+ const bc=bs?'#ee7f9d':'#f6b2c0';E(63,177,14,6,bc);E(117,177,14,6,bc);if(bs){E(63,177,8,3,'#f59ab1');E(117,177,8,3,'#f59ab1');LN(54,172,58,180,'#e76a8a',1);LN(60,172,64,180,'#e76a8a',1)}
+ const eye=(x,sd,rs)=>{const y=158;
+  if(e==='c'||e==='s'){LN(x-10,y+4,x,y-4,D,2);LN(x,y-4,x+10,y+4,D,2);LN(x+sd*10,y+4,x+sd*15,y,D,2);LN(x+sd*9,y+2,x+sd*14,y-3,D,2)}
+  else if(e==='h')HT(x-10,y-9,'#ff5c93',3);
+  else{E(x,y,11,10,'#fff');E(x,y+1,7,9,'#18d0c0');E(x,y-2,7,6,'#0a9a98');E(x,y+2,3,5,'#12080e');R(x-6,y-6,4,4,'#fff');R(x+1,y+4,2,2,'#e8fff8');R(x-11,y-7,23,3,D);R(x+sd*10,y-10,4,3,D);R(x+sd*13,y-12,3,2,D);R(x-9,y+10,18,1,'#7a5058');R(x-9,y-9,18,1,SS)}
+  const by=y-20-(rs?6:0);LN(x-11,by+3,x,by,HAIR,2);LN(x,by,x+11,by+4,HAIR,2)};
+ eye(68,-1,false);eye(112,1,e==='q');
+ R(88,175,4,3,'#d9a28e');R(88,174,2,1,'#fff3e8');
+ const my=193;if(e==='q'){E(90,my+2,4,5,'#7a2a40');E(90,my+1,2,3,'#a04a62')}else if(EX==='h'){PG([[77,my-3],[103,my-3],[97,my+8],[83,my+8]],'#7a2a40');R(85,my+4,10,3,'#f08aa6');R(78,my-4,24,2,'#c85a78')}else if(EX==='s'||EX==='b'){LN(78,my-3,86,my+3,'#e8346a',2);LN(86,my+3,94,my+3,'#e8346a',2);LN(94,my+3,102,my-3,'#e8346a',2);R(86,my+4,8,2,'#ff5a8a')}else{R(82,my,16,2,'#e8346a');R(84,my+2,12,2,'#ff5a8a');R(86,my+4,8,1,'#ff8aa8')}}
+ PG([[36,150],[40,100],[60,76],[92,66],[128,78],[146,108],[146,150],[132,150],[128,120],[112,100],[96,112],[86,128],[78,110],[62,122],[52,150]],HAIR);PG([[52,150],[62,122],[78,110],[70,134],[60,152]],HAIR3);
+ R(36,118,16,106,HAIR);R(128,118,16,106,HAIR);R(34,222,14,54,HAIR);R(132,222,14,54,HAIR);LN(54,92,92,72,HAIR2,3);LN(92,72,128,88,HAIR2,3);LN(62,122,76,102,HAIR2,2);LN(116,104,128,122,HAIR2,2);for(let k=0;k<5;k++){LN(40,130+k*18,38,150+k*18,HAIR2,1);LN(138,130+k*18,140,150+k*18,HAIR2,1)}
+ [[0,-7],[7,-2],[4,6],[-4,6],[-7,-2]].forEach(q=>E(132+q[0],96+q[1],5,5,'#2ee6ff'));E(132,96,3,3,'#ffe23a');
+ R(48,190,2,6,'#7af0ff');E(49,200,3,3,'#e8ffff');R(132,190,2,6,'#7af0ff');E(133,200,3,3,'#e8ffff');if(gave)roseBig(122,242,110,288)}
+/* ===== بزونة جوليا ===== */
+function cat(x,y,t){y+=(t-meowT<350)?-Math.round(Math.sin((t-meowT)/350*Math.PI)*3):0;const F='#2ee6ff',D='#0a9ac8',L='#e8ffff',P='#ff3d9a',K='#2a1a10',w=reduce?0:Math.sin(t*.005),bl=(t%3200)<140;
+ c.globalAlpha=.2;E(x,y-6,9,8,'#2ee6ff');c.globalAlpha=1;const tx=Math.round(x+8+w*2);LN(x+3,y-2,x+6,y-3,F,2);LN(x+6,y-3,tx,y-9,F,2);R(tx,y-10,2,2,L);
+ E(x,y-4,5,4,F);R(x-3,y-7,1,3,D);R(x,y-8,1,3,D);R(x+3,y-7,1,3,D);E(x-1,y-3,2,2,L);
+ R(x-4,y-1,3,2,L);R(x,y-1,3,2,L);
+ E(x-2,y-10,4,3,F);R(x-5,y-14,2,3,F);R(x,y-14,2,3,F);R(x-4,y-13,1,1,P);R(x,y-13,1,1,P);
+ R(x-3,y-13,2,1,D);R(x-1,y-13,2,1,D);
+ if(bl){R(x-4,y-10,2,1,K);R(x-1,y-10,2,1,K)}else{R(x-4,y-11,2,2,K);R(x-1,y-11,2,2,K);R(x-4,y-11,1,1,'#fff');R(x-1,y-11,1,1,'#fff')}
+ R(x-3,y-8,1,1,P);R(x-5,y-9,1,1,L);R(x-5,y-8,1,1,L);R(x+1,y-9,1,1,L);R(x+1,y-8,1,1,L)}
+/* ===== الشخص بدون وجه + الوردة ===== */
+function roseBig(bx,by,sx,sy){LN(sx,sy,bx,by+12,'#00d68a',3);PG([[(sx+bx)/2+2,by+34],[(sx+bx)/2+24,by+24],[(sx+bx)/2+8,by+44]],'#13d09a');
+ E(bx,by,15,14,'#ff1f5a');E(bx-7,by+3,8,9,'#d0103e');E(bx+8,by+3,8,9,'#e0184c');E(bx,by-3,10,9,'#ff4d7e');E(bx,by-2,6,6,'#ff7a9e');E(bx,by-1,3,3,'#b00c3c');R(bx-9,by-10,4,2,'#ffc0d4')}
+function smallRose(x,y){R(x-1,y-1,3,3,'#ff1f5a');R(x,y,1,1,'#ff9ab0');R(x,y+2,1,5,'#00d68a');R(x+1,y+4,2,1,'#00d68a')}
+function pgiver(x,y,bob){y+=bob;E(x,y-31,5,6,'#2a7be8');E(x,y-30,3,4,'#2a1458');R(x-5,y-25,10,14,'#2a7be8');R(x-7,y-25,2,12,'#2a7be8');R(x+5,y-25,2,12,'#2a7be8');R(x+7,y-14,3,2,'#d9a07c');R(x-4,y-11,3,11,'#2b2b3d');R(x+1,y-11,3,11,'#2b2b3d');R(x-5,y,4,2,'#16101c');R(x+1,y,4,2,'#16101c');R(x-1,y-26,2,2,'#7af0ff')}
+function giver(t){const bob=reduce?0:Math.round(Math.sin(t*.003)*2);
+ E(90,318,114,84,'#1f5fc8');R(0,250,30,30,'#1f5fc8');PG([[50,226],[78,226],[86,274],[58,280],[30,280]],'#174aa0');PG([[130,226],[102,226],[94,274],[122,280],[150,280]],'#174aa0');
+ E(90,172,58,70,'#2a7be8');PG([[40,200],[140,200],[152,238],[28,238]],'#2a7be8');E(90,174,41,54,'#7af0ff');E(90,174,39,52,'#2a1458');E(90,180,30,40,'#3a1a70');
+ R(78,226,2,22,'#e8ffff');R(100,226,2,22,'#e8ffff');R(77,248,4,4,'#7af0ff');R(99,248,4,4,'#7af0ff');
+ LN(46,140,54,104,'#5aa0ff',2);LN(134,140,126,104,'#5aa0ff',2);
+ const bx=134,by=212+bob;roseBig(bx,by,124,284);E(126,268,13,10,'#d9a07c');R(112,264,5,3,'#c08860');
+ for(let k=0;k<6;k++)if(Math.sin(t*.004+k*2.3)>.2)R(bx+Math.cos(k*1.3)*32-1,by+Math.sin(k*1.7)*28,3,3,['#ffffff','#7af0ff','#ffe23a'][k%3])}
+const petalsA=[];for(let k=0;k<22;k++)petalsA.push({x:10+rnd()*40,y:36+rnd()*100,v:.2+rnd()*.25,p:rnd()*6});
+function frame(t){requestAnimationFrame(frame);if(document.hidden)return;
+ c.drawImage(bgc,0,0,320,360);stars.forEach(s=>{if(Math.sin(t*.002+s[2]*2)>.35)R(s[0]*2,s[1]*2,2,2,'#ffffff')});
+ c.globalAlpha=.07+.03*Math.sin(t*.002);E(280,88,64,64,'#ff9ad5');c.globalAlpha=1;
+ c.globalAlpha=.45;for(let k=0;k<2;k++){const cx=Math.round(reduce?60+k*170:((t*.006+k*170)%420)-60),cy=82+k*20;E(cx,cy,26,6,'#7a2aa8');E(cx-12,cy-4,12,5,'#7a2aa8');E(cx+10,cy-5,14,6,'#7a2aa8')}c.globalAlpha=1;
+ if(!reduce){if(!ss&&Math.random()<.003)ss={x:230+Math.random()*80,y:6+Math.random()*90,l:0};if(ss){ss.x-=5;ss.y+=2.5;ss.l++;for(let k=0;k<8;k++){c.globalAlpha=Math.max(0,(1-k/8)*Math.min(1,(60-ss.l)/10));R(ss.x+k*4,ss.y-k*2,k?3:4,k?2:3,k?'#7af0ff':'#ffffff')}c.globalAlpha=1;if(ss.l>60)ss=null}}
+ if(!reduce)lan.forEach(l=>{l.y-=l.v;l.x+=Math.sin(t*.0015+l.p)*.15;if(l.y<-14){l.y=372;l.x=170+Math.random()*140}c.globalAlpha=.2;E(Math.round(l.x),Math.round(l.y),10,10,l.c);c.globalAlpha=1;R(l.x-3,l.y-4,6,8,l.c);R(l.x-2,l.y-2,4,4,'#fff6c8');R(l.x-2,l.y-6,4,2,'#3a1a40')});
+ c.globalAlpha=.08;[[210,0,250,0,140,360,60,360],[270,0,310,0,200,360,130,360]].forEach(q=>PG([[q[0],q[1]],[q[2],q[3]],[q[4],q[5]],[q[6],q[7]]],'#c8a0ff'));c.globalAlpha=1;c.globalAlpha=.14;E(18,272,20,20,'#ffc23a');c.globalAlpha=.12;E(18,272,32,32,'#ffc23a');c.globalAlpha=1;
+ c.save();c.scale(2,2);c.translate(0,40);
+ if(!reduce){for(let k=0;k<10;k++){const ph=((t*.0016)+k*.19)%1,x=88+(k-4.5)*2.4*ph*1.3,y=89+ph*ph*26-ph*15;R(x,y,1,1,'#7af0ff')}
+  petalsA.forEach(p=>{p.y+=p.v;p.x+=Math.sin(t*.002+p.p)*.18+.05;if(p.y>138){p.y=34+rnd()*20;p.x=8+rnd()*40}R(p.x,p.y,2,1,'#ff7ac0')});
+  for(let k=0;k<8;k++){const x=14+((t*.008*(1+k%3*.3)+k*41)%130)+6*Math.sin(t*.003+k),y=60+k*9+7*Math.sin(t*.0025+k*2),al=.5+.5*Math.sin(t*.005+k*1.7);c.globalAlpha=.25*al;R(x-2,y-2,5,5,['#ffe23a','#2ee6ff','#ff5ac8'][k%3]);c.globalAlpha=Math.max(.2,al);R(x,y,1,1,'#ffffff');c.globalAlpha=1}}
+ const bob=reduce?0:Math.round(Math.sin(t*.003));E(94,134,7,1,'#033a34');E(112,134,7,1,'#033a34');pgiver(94,132,bob);
+ person(112,132,HAIR,'#a23cff','#2b2b3d',true,reduce?0:Math.round(Math.sin(t*.003+1)),SKIN);{const gp=gave?Math.min(1,(t-giveT)/1100):0;smallRose(Math.round(102+(108-102)*gp),Math.round((111+bob)*(1-gp)+116*gp-Math.sin(gp*Math.PI)*12))}E(130,133,Math.round(5*CATSIZE),1,'#033a34');c.save();c.translate(130,132);c.scale(CATSIZE,CATSIZE);cat(0,0,t);c.restore();c.restore();
+ px+=(0-px)*.2;c.save();c.translate(Math.round(px),80);if(who==='j'){julia(t);c.save();c.translate(238,278);c.scale(CATSIZE*2.5,CATSIZE*2.5);cat(0,0,t);c.restore()}else giver(t);c.restore();
+ c.globalCompositeOperation='multiply';c.globalAlpha=.14;R(0,0,320,360,'#c0b0ff');c.globalCompositeOperation='source-over';c.globalAlpha=1;
+ fwDraw();hearts.forEach(h=>{h.y-=.8;h.x+=Math.sin(t*.004+h.p)*.5;HT(h.x|0,h.y|0,h.k||'#ff3d9a',2)});for(let k=hearts.length-1;k>=0;k--)if(hearts[k].y<-16)hearts.splice(k,1);
+ for(let k=0;k<4;k++){c.globalAlpha=.12-k*.03;R(0,k*3,320,3,'#000');R(0,360-(k+1)*3,320,3,'#000')}c.globalAlpha=1}
+function boom(x,y){const cols=['#ff3d9a','#2ee6ff','#ffe23a','#a23cff','#ff7a2a'],col=cols[Math.floor(Math.random()*5)];for(let k=0;k<28;k++){const a=k/28*Math.PI*2,v=1.2+Math.random()*1.6;fw.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:0,c:col})}try{if(ac&&!mut&&ac.state==='running')tn(hz(24+Math.floor(Math.random()*7)),ac.currentTime,.25,.04,'square')}catch(e){}}
+function fwDraw(){for(let k=fw.length-1;k>=0;k--){const q=fw[k];q.x+=q.vx;q.y+=q.vy;q.vy+=.03;q.l++;c.globalAlpha=Math.max(0,1-q.l/55);R(q.x,q.y,3,3,q.c);if(q.l>55)fw.splice(k,1)}c.globalAlpha=1}
+function burstH(n){for(let k=0;k<n;k++)hearts.push({x:20+Math.random()*260,y:350+Math.random()*20,p:Math.random()*6})}
+requestAnimationFrame(frame);
+/* ===== الحوار ===== */
+const S=[
+ ['h','✦ بـيـش أوصفـك ويـحتـار الـوصـف بـيـك... 🤍 ✦','n'],
+ ['h','راح أوصفـك بـالـورد والـورد ماكـو أحلى مـنـه.. 🥀','s'],
+ ['j','لا.. أنـت أحـلـى! 🫵❤️','h'],
+ ['h','راح أوصفـك بـالـعسـل والـعسـل يـنوصـف للـوادم دوة.. 🍯','s'],
+ ['j','لا.. أنـت أحـلـى! 🫵💛','b'],
+ ['h','راح أوصفـك بـالـگـمـر والـگـمـر ماكـو أحلى مـنـه... 🌚','s'],
+ ['j','لا.. لـا.. أنـت أحـلـى بـهـواي! 🫵✨','h'],
+ ['h','وهاي وردة إلج… مني، وأنا زعلانة عليج بس أحبج 🌹','s','give'],
+ ['h','وإذا تتجاهلين هذا الشي… هاي أدري بيج ما تحبيني 🥀','n',[['أحبج وما أتجاهلج 💗',['j','تعالي لا تزعلين… أنتِ أغلى من الورد والعسل والگمر 🌙','h']],['أخذت الوردة وسامحتج 🌹',['j','وردتج وصلت… وانتِ أحلى منها بهواي 🌹','h']]]]];
+const dots=$('pg');S.forEach(()=>dots.appendChild(document.createElement('i')));
+function restart(){clearInterval(tmr);i=-1;gave=false;giveT=-1e9;ans=[];who='h';px=-180;EX='n';typing=false;$('ch').innerHTML='';$('tx').textContent='';$('nm').textContent='';[...dots.children].forEach(d=>d.classList.remove('on'));fw.length=0;next()}
+let ans=[],i=-1,typing=false,tmr=0,full='',busy=false;
+function blip(){if(!ac||mut||ac.state!=='running')return;const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=480+Math.random()*220;g.gain.setValueAtTime(.04,t);g.gain.exponentialRampToValueAtTime(.0001,t+.05);o.connect(g);g.connect(mst);o.start(t);o.stop(t+.06)}
+function say(l){$('ch').innerHTML='';[...dots.children].forEach((d,k)=>d.classList.toggle('on',k<=i));$('nm').textContent=l[0]==='h'?ME:HER;if(l[0]!==who){px=-180}who=l[0];$('nm').style.color=l[0]==='h'?'#5af0ff':'#ff7ac0';EX=l[2];if(EX==='h'||EX==='b')burstH(EX==='h'?10:4);if(l[3]==='give'){gave=true;giveT=performance.now();buzz([20,40,20]);if(!reduce){let n=0;const iv=setInterval(()=>{boom(40+Math.random()*240,50+Math.random()*130);if(++n>5)clearInterval(iv)},350)}}
+ full=l[1];const arr=[...full];$('tx').textContent='';typing=true;let k=0;clearInterval(tmr);$('nx').classList.add('hide');
+ tmr=setInterval(()=>{k++;$('tx').textContent=arr.slice(0,k).join('');if(k%2===0)blip();if(k>=arr.length){clearInterval(tmr);typing=false;fin(l)}},reduce?1:32)}
+function fin(l){if(Array.isArray(l[3])){const w=$('ch');w.innerHTML='';l[3].forEach(o=>{const bt=document.createElement('button');bt.className='cb';bt.textContent=o[0];bt.onclick=e=>{e.stopPropagation();buzz();sfxPick();ans.push(o[0]);w.innerHTML='';say(o[1]);i=Math.max(i,-1)};w.appendChild(bt)});$('nx').classList.add('hide')}else if(i<S.length-1){$('nx').classList.remove('hide');if(auto){const my=i;setTimeout(()=>{if(auto&&i===my&&!typing&&!$('ch').children.length)next()},2600)}}else{$('nx').classList.add('hide');burstH(16);buzz([30,50,30]);{const w0=$('ch'),rb=document.createElement('button');rb.className='cb';rb.textContent='شوفيها مرة ثانية 🔁';rb.onclick=e=>{e.stopPropagation();restart()};setTimeout(()=>w0.appendChild(rb),50)}if(WA){const w=$('ch');const a=document.createElement('a');a.className='cb';a.style.display='block';a.style.textDecoration='none';a.target='_blank';a.rel='noopener';a.textContent='ابعثي ردج لـ'+ME+' 💌';a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(HER+' تكول: '+(ans.length?ans.join(' / '):'وصلتني رسالتك')+' 💜');w.appendChild(a)}}}
+function next(){if(busy||!$('ov').classList.contains('o'))return;if(typing){clearInterval(tmr);typing=false;$('tx').textContent=full;fin(S[i]||['','','n']);return}if($('ch').children.length)return;if(i>=S.length-1)return;i++;say(S[i])}
+$('box').onclick=next;function synthMeow(){if(!ac||ac.state!=='running')return;const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain(),f=ac.createBiquadFilter();o.type='sawtooth';f.type='lowpass';f.frequency.value=2200;o.frequency.setValueAtTime(600,t);o.frequency.linearRampToValueAtTime(950,t+.14);o.frequency.exponentialRampToValueAtTime(450,t+.5);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.09,t+.06);g.gain.exponentialRampToValueAtTime(.0001,t+.55);o.connect(f);f.connect(g);g.connect(mst);o.start(t);o.stop(t+.6)}
+function meow(){meowT=performance.now();buzz(15);burstH(3);if(mut)return;let used=false;const fb=()=>{if(!used){used=true;synthMeow()}};try{const a=meowA||new Audio(MEOW+'.'+EXT[0]);try{a.currentTime=0}catch(e){}a.onerror=fb;a.play().catch(fb)}catch(e){fb()}}
+$('sc').onclick=e=>{const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*320,y=(e.clientY-r.top)/r.height*360;if(x>205&&x<305&&y>270&&y<360&&$('ov').classList.contains('hide')){meow();return}next();if($('ov').classList.contains('hide'))hearts.push({x:x-7,y:y-7,p:Math.random()*6,k:'#ff3d9a'})};addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter')next()});
+/* ===== صوت: موسيقى 8-بت + مؤثرات ===== */
+const EXT=['mp3','m4a','ogg','wav'];let musA=null,meowA=null;
+function pick(base){return new Promise(res=>{let i=0;const t=()=>{if(i>=EXT.length)return res(base+'.'+EXT[0]);const u=base+'.'+EXT[i++];fetch(u,{method:'HEAD'}).then(r=>r.ok?res(u):t()).catch(()=>res(base+'.'+EXT[0]))};t()})}
+pick(MUSIC).then(u=>{musA=new Audio(u);musA.loop=true;musA.preload='auto'});
+pick(MEOW).then(u=>{meowA=new Audio(u);meowA.preload='auto'});
+let ac,mst,nt=0,stp=0,mut=false,song=null,pendF=null;
+const hz=n=>440*Math.pow(2,n/12),LEAD=[[7,-9,3,-9,5,7,3,-9],[8,-9,5,-9,7,8,5,-9],[10,-9,7,-9,8,10,7,-9],[12,10,8,7,5,3,0,-9]],BASS=[-24,-28,-21,-26],CH=[[0,3,7],[-4,0,3],[3,7,10],[-2,2,5]];
+function tn(f,t,d,v,ty){const o=ac.createOscillator(),g=ac.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.setValueAtTime(v,t+d*.7);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mst);o.start(t);o.stop(t+d+.02)}
+function sch(){if(!ac||mut||song||ac.state!=='running')return;const SD=60/96/2;while(nt<ac.currentTime+.2){const s=stp%8,bar=Math.floor(stp/8)%4;const n=LEAD[bar][s];if(n>-9)tn(hz(n),nt,SD*1.6,.045,'square');
+ if(s%4===0)tn(hz(BASS[bar]),nt,SD*3.5,.12,'triangle');if(s%2===0)tn(hz(CH[bar][(s/2)%3]-12),nt,SD*1.8,.02,'square');
+ if(s%2===1){const b=ac.createBufferSource();b.buffer=nbuf();const g=ac.createGain(),f=ac.createBiquadFilter();f.type='highpass';f.frequency.value=7000;g.gain.setValueAtTime(.025,nt);g.gain.exponentialRampToValueAtTime(.0001,nt+.04);b.connect(f);f.connect(g);g.connect(mst);b.start(nt);b.stop(nt+.05)}
+ nt+=SD;stp++}}
+let nb;const nbuf=()=>{if(!nb){nb=ac.createBuffer(1,ac.sampleRate/4,ac.sampleRate);const d=nb.getChannelData(0);for(let k=0;k<d.length;k++)d[k]=Math.random()*2-1}return nb};
+function sfxPick(){if(!ac||mut||ac.state!=='running')return;const t=ac.currentTime;[0,4,7,12].forEach((q,k)=>tn(hz(q+12),t+k*.06,.2,.05,'square'))}
+function startAudio(){try{if(!musA){musA=new Audio(MUSIC+'.'+EXT[0]);musA.loop=true}musA.play().then(()=>{if(!song)song=musA}).catch(()=>{})}catch(e){}if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)();ac.resume();mst=ac.createGain();mst.gain.value=.9;mst.connect(ac.destination);nt=ac.currentTime+.1;setInterval(sch,40)}catch(e){ac=null}}if(pendF)useFile(pendF)}
+function useFile(f){if(song)song.pause();song=new Audio(URL.createObjectURL(f));song.loop=true;mut=false;song.play().catch(()=>{})}
+$('lk').onclick=()=>{buzz(20);const t=$('toast');t.classList.add('s');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('s'),1800)};
+$('snd').onclick=()=>{mut=!mut;if(song)mut?song.pause():song.play();else if(ac&&!mut)nt=ac.currentTime+.1;$('snd').textContent=mut?'✕':'♪'};
+/* ===== شاشة الدخول: بوابة الحديقة ===== */
+(function(){
+ const sr=(()=>{let k=7;return()=>(k=(k*16807)%2147483647)/2147483647})();
+ const mk=(id,w,h)=>{const q=$(id);q.width=w;q.height=h;const g=q.getContext('2d');g.imageSmoothingEnabled=false;return g};
+ const R2=(g,x,y,w,h,c)=>{g.fillStyle=c;g.fillRect(x,y,w,h)};
+ const ring=(g,cx,cy,r,c)=>{g.fillStyle=c;for(let a=0;a<6.3;a+=.04)g.fillRect(Math.round(cx+r*Math.cos(a)),Math.round(cy+r*Math.sin(a)),1,1)};
+ ['pc1','pc2'].forEach(id=>{const g=mk(id,17,105);
+  R2(g,0,18,17,87,'#2f3a66');for(let y=30;y<105;y+=12){R2(g,0,y,17,1,'#1f2850');R2(g,(((y/12)|0)%2)?5:11,y-12,1,12,'#1f2850')}
+  R2(g,0,18,1,87,'#4a5a96');R2(g,15,18,2,87,'#1a2145');
+  R2(g,0,14,17,5,'#46548a');R2(g,0,14,17,1,'#7a8ac8');R2(g,0,18,17,1,'#1a2145');
+  R2(g,5,3,7,11,'#14182e');R2(g,6,5,5,8,'#ffb347');R2(g,7,7,3,4,'#fff2b0');R2(g,7,1,3,1,'#14182e');R2(g,5,2,7,1,'#14182e');R2(g,8,0,1,1,'#14182e');
+  for(let k=0;k<26;k++)R2(g,Math.floor(sr()*17),60+Math.floor(sr()*45),1,2,sr()<.6?'#2f8a5a':'#1f6a48')});
+ {const g=mk('ac',105,20);for(let x=0;x<105;x++){const y0=Math.round(7-6*Math.sin(Math.PI*x/104));R2(g,x,y0,1,20-y0,'#34406e');R2(g,x,y0,1,1,'#7a8ac8');R2(g,x,18,1,2,'#1a2145')}
+  R2(g,45,9,15,6,'#e8b84a');R2(g,46,10,13,4,'#b8841f');R2(g,48,11,9,1,'#ffe9a8');R2(g,48,13,9,1,'#ffe9a8');
+  for(let k=0;k<46;k++){const x=Math.floor(sr()*103),y0=Math.round(7-6*Math.sin(Math.PI*x/104));R2(g,x,y0+Math.floor(sr()*6)-1,2,2,k%3?'#2f8a5a':(k%2?'#d11f4a':'#ff6a8a'))}}
+ function leaf(id,right){const g=mk(id,33,78),I='#10152e',H='#2a3a78',G='#e8b84a';
+  R2(g,0,8,3,70,I);R2(g,30,8,3,70,I);[9,15,21].forEach(x=>R2(g,x,10,2,68,I));
+  R2(g,0,14,33,3,I);R2(g,0,62,33,3,I);R2(g,0,14,33,1,H);R2(g,0,62,33,1,H);R2(g,0,8,1,70,H);R2(g,30,8,1,70,H);[9,15,21].forEach(x=>R2(g,x,10,1,68,H));
+  [1,10,16,22,31].forEach(cx=>{R2(g,cx,1,1,1,G);R2(g,cx-1,2,3,1,G);R2(g,cx-1,3,3,3,G);R2(g,cx,6,1,4,I)});
+  for(let x=3;x<30;x+=4){R2(g,x,15,1,1,G);R2(g,x,63,1,1,G)}
+  ring(g,16,38,9,G);ring(g,16,38,8,'#8a5e1a');R2(g,12,34,9,9,'#1a1d3a');
+  g.fillStyle='#d11f4a';for(let y=-3;y<=3;y++){const w=Math.round(4*Math.sqrt(1-y*y/9.5));g.fillRect(16-w,38+y,w*2+1,1)}
+  R2(g,15,36,2,1,'#ff9ab0');R2(g,16,42,1,4,'#2f8a5a');
+  R2(g,right?3:27,42,3,7,G);R2(g,right?4:28,43,1,5,'#8a5e1a')}
+ leaf('lc1',false);leaf('lc2',true);
+ const oc=$('oc'),x=oc.getContext('2d'),ov=$('ov');let W,H,u,ST,PT,FF;
+ function init(){const d=Math.min(devicePixelRatio||1,2);W=oc.width=Math.round(innerWidth*d);H=oc.height=Math.round(innerHeight*d);u=Math.max(3,Math.round(Math.min(W,H)/150));
+  ST=Array.from({length:Math.round(W*H/22000)},()=>({x:Math.random()*W,y:Math.random()*H*.7,p:Math.random()*6}));
+  PT=Array.from({length:30},()=>({x:Math.random()*W,y:Math.random()*H,v:.4+Math.random()*.9,p:Math.random()*6,c:['#c0305a','#ff6a8a','#ffb0c0'][Math.floor(Math.random()*3)]}));
+  FF=Array.from({length:16},()=>({x:Math.random()*W,y:H*(.45+Math.random()*.5),p:Math.random()*6,s:.3+Math.random()*.7}))}
+ function draw(t){x.clearRect(0,0,W,H);const bo=ov.classList.contains('op')?4:1;
+  ST.forEach(s=>{if(Math.sin(t*.002+s.p*2)>-.2){x.fillStyle=s.p>4?'#ffe9a8':'#fff';x.fillRect(s.x,s.y,u,u)}});
+  const cx=W*.86,cy=H*.075,r=Math.min(W,H)*.045,gr=x.createRadialGradient(cx,cy,r*.5,cx,cy,r*4);gr.addColorStop(0,'rgba(255,236,170,.45)');gr.addColorStop(1,'rgba(255,236,170,0)');x.fillStyle=gr;x.fillRect(cx-r*4,cy-r*4,r*8,r*8);
+  for(let yy=-r;yy<r;yy+=u){const w=Math.sqrt(r*r-yy*yy);x.fillStyle='#fff3c0';x.fillRect(cx-w,cy+yy,w*2,u)}
+  [['#0b2a3a',.88,.003,.03,0],['#061820',.935,.005,.025,2]].forEach(h=>{x.fillStyle=h[0];for(let X=0;X<W;X+=u){const Y=H*h[1]+Math.sin(X*h[2]+h[4])*H*h[3];x.fillRect(X,Y,u,H-Y)}});
+  FF.forEach(f=>{f.x+=Math.sin(t*.0008+f.p)*u*.08*f.s;f.y+=Math.cos(t*.0011+f.p)*u*.05*f.s;const al=.35+.65*Math.max(0,Math.sin(t*.003*f.s+f.p));
+   const gg=x.createRadialGradient(f.x,f.y,0,f.x,f.y,u*7);gg.addColorStop(0,'rgba(255,226,122,'+(.7*al)+')');gg.addColorStop(1,'rgba(255,226,122,0)');x.fillStyle=gg;x.fillRect(f.x-u*7,f.y-u*7,u*14,u*14);x.fillStyle='rgba(255,251,208,'+al+')';x.fillRect(f.x,f.y,u,u)});
+  PT.forEach(p=>{p.y+=p.v*u*.22*bo;p.x+=Math.sin(t*.001+p.p)*u*.14+u*.05;if(p.y>H+u*2){p.y=-u*2;p.x=Math.random()*W}if(p.x>W+u)p.x=-u;x.fillStyle=p.c;x.fillRect(p.x,p.y,u*2,u)})}
+ function loop(t){if(ov.classList.contains('hide'))return;draw(t);if(!reduce)requestAnimationFrame(loop)}
+ init();addEventListener('resize',()=>{init();if(reduce)draw(0)});requestAnimationFrame(loop)})();
+$('go').onclick=()=>{$('go').disabled=true;startAudio();buzz([25,40,25]);$('ov').classList.add('op');sfxPick();setTimeout(()=>{try{if(ac&&!mut&&ac.state==='running'){const t=ac.currentTime;tn(hz(-22),t,.8,.05,'sawtooth');tn(hz(-19),t+.35,.8,.04,'sawtooth')}}catch(e){}},60);setTimeout(()=>$('ov').classList.add('o'),1700);setTimeout(()=>$('ov').classList.add('hide'),2600);setTimeout(next,2700)};
+
+$('ap').onclick=()=>{auto=!auto;buzz(12);$('ap').textContent=auto?'⏸':'⏵';$('ap').style.background=auto?'var(--pk)':'';if(auto&&!typing&&$('ov').classList.contains('hide')&&!$('ch').children.length&&i<S.length-1)setTimeout(()=>{if(auto&&!typing&&!$('ch').children.length)next()},800)};
+if(!document.fullscreenEnabled)$('fs').classList.add('hide');
+$('fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+/* ===== ٢٠٠ كلمة من القلب (تطلع عشوائي بدون تكرار) ===== */
+const WL=["سامحيني… ما أحب يمر يوم وإنتي زعلانة مني.", "الزعل وياج ثقيل عليّ، وصلحنا أخف شي بگلبي.", "غلطت؟ إي غلطت… بس حبي لج عمره ما غلط.", "ما أريد أربح الجدال، أريد أربحج إنتي.", "تعالي نخلي الزعل برا الباب ونرجع نضحك.", "أعتذر لأن قيمتج عندي أكبر من كبريائي.", "إذا غلطت بحقج، گلبي تعب گبلج.", "لا تخلين الزعل يطول… عمرنا أگصر من هالشي.", "ردّي عليّ ولو بكلمة، اشتگت لصوتج.", "ماكو أحد يعوّضني عنج، حتى لو اجتمعت الدنيا.", "اللي يزعل من حبيبه ويرجع يراضيه، هذا أنا وياج.", "كل مرة أزعلج أتعلم شلون أحبج أحسن.", "ما أطلب غير فرصة صغيرة أرجّع بيها ضحكتج.", "كلمة «آسفة» ما تكفي… بس هي أول طريق الرجعة إلج.", "لو أرجع الوگت، أختار أسمعج گبل ما أحجي.", "خليني أرجع أضحّكج… هذا أحلى اعتذار أعرفه.", "أنا بعدني أتعلم شلون أحافظ على أغلى ناس، وإنتي أولهم.", "الصلح وياج مو ضعف… هو أقوى حب.", "گلبي ما يتحمل زعلج، فسامحيني وخلصيني.", "ما أريد منج غير ابتسامة تگلّي إنج سامحتيني.", "كل شي يتصلّح… بس إنتي ما تنعوضين.", "أنا اللي غلطت، وإنتي تستاهلين أحلى اعتذار.", "لا تأجلين الصلح لباچر، سامحيني اليوم.", "اشتگتلج أكثر من ما زعلت.", "لو الاعتذار ورد، كان طلّعت لج حديقة كاملة.", "ما راح أتعب من إني أراضيج مهما صار.", "زعلج وجعني… بس حبج داوى كل شي.", "تعالي نبدّل «إنتي زعلانة» بـ«إحنا مثل ما كنا».", "أعرف إني زعلتج، وأعرف إنج أطيب من إنج تبقين زعلانة.", "خلّي گلبج الكبير يسامحني هالمرة.", "لا تحرميني من وجودج، الدنيا ما تحلى بدونج.", "أصعب شي أزعلج… وأصعب منه أبعد عنج.", "وياج أتعلم إن الصداقة الحقيقية تسامح وترجع.", "إذا الغلط يبعّدنا، خليني أصلحه گبل لا يكبر.", "ما أريد وردة تذبل، ولا صداقتنا تذبل.", "أنا هنا، وبعدني أنتظرج بنفس المكان.", "جبت لج اعتذار من أحلى ما عندي: گلبي.", "أحب أراضيج لأن رضاج يسوى عندي الدنيا.", "شنو أسوي حتى ترجعين تضحكين؟ گولي وأنا أنفذ.", "سامحيني… وبعدين خلّينا نكمل حكايتنا.", "إنتي مو بس صاحبتي… إنتي جزء حلو من عمري.", "وياج الوگت يمشي حلو.", "من أحجي وياج أنسى كل تعبي.", "إنتي الناس اللي أتمنى أضل وياهم لآخر العمر.", "صداقتنا أحلى هدية إعطتني إياها الدنيا.", "لو أختار صاحبة من جديد، أختارج مليون مرة.", "ضحكتج أحلى من أي موسيقى.", "وياج حتى الأيام العادية تصير حلوة.", "ما أحتاج أحجي هواي… يكفي أگعد وياج بصمت.", "إنتي الأمان لما الدنيا تضيج.", "أحبج مو لأنج تسوين لي شي، أحبج لأنج إنتي.", "أحلى قصة بحياتي بدت يوم عرفتج.", "صوتج يهدّيني أكثر من أي دوا.", "إنتي الشخص اللي أحجي عنده كل شي بدون خوف.", "ربي يخليج لي ولا يحرمني منج.", "كل ناس الدنيا ما يسوون ضحكة وحدة منج.", "إنتي مثل القمر… وين ما أروح تبقين تنوّرين طريقي.", "وجودج بحياتي نعمة أحمد ربي عليها.", "لو اشتگت لشخص بالدنيا، يكون إنتي أولهم.", "أحب التفاصيل الصغيرة بيج… حتى زعلج حلو.", "إنتي أحلى صدفة صارت لي.", "ما أتخيل أيامي بدونج.", "گلبج أطيب گلب شفته بحياتي.", "إذا الدنيا تعبتني، أرجع لج وأرتاح.", "إنتي مو بس بگلبي… إنتي ساكنة فيه.", "حبج عندي ما ينشرح بكلمات.", "أحلى شي بيج إنج تبقين إنتي مهما تغيرت الدنيا.", "أنا محظوظة إنج بحياتي.", "كل ما أشوف وردة أتذكرج.", "وياج ما أحتاج أمثّل… أكون نفسي وبس.", "إنتي الاستثناء الجميل بكل شي.", "يا بعد گلبي وروحي.", "لو الحب يتجسد، يصير شبهج.", "من گبل ما أحجي، إنتي تفهمين شنو بگلبي.", "أحلى مكان بالعالم هو حيث تكونين.", "ماكو أغلى من صاحبة صادقة، وإنتي هاي.", "دعواتي إلج بكل صلاة.", "إنتي النعمة اللي ما أبدّلها بشي.", "ضحكتج تخلي الحديقة تنوّر.", "كل الأشياء الحلوة بحياتي إلج بيها أثر.", "الورد يحسدج على نعومتج.", "عيونج فيها من الحنية ما يكفي العالم.", "إنتي أحلى من القمر لما يكون بدر.", "طيبتج تخلي كل شي حواليج أجمل.", "إنتي نور… وين ما تروحين تضوّين.", "صوتج أحلى من نسمة الصبح.", "إنتي أرقّ من البتلة وأقوى من الجبل.", "كلش حلوة… من الداخل گبل الخارج.", "ما شفت أحد يحجي بحنية مثلج.", "ابتسامتج تسوى كنوز الدنيا.", "إنتي القصيدة اللي ما أنتهي من قراءتها.", "وجودج يرجّع الروح للمكان.", "إنتي الجمال اللي ما يعرف الغرور.", "شعرج مثل الليل لما يتزين بالنجوم.", "إنتي بنت أصل وگلب طيب.", "حتى لما تزعلين… تظلين أحلى وحدة.", "فدوة لضحكتج الحلوة.", "إنتي أحلى من العسل، وأرق من الورد.", "الله خلگ مثلج مرة وحدة بس.", "كل شي بيج متناسق… الطيبة والحنية والذوق.", "ذوقج بكل شي يخليني أحترمج أكثر.", "إنتي هدية من السما.", "بيج حنية ما شفتها عند أحد.", "إنتي الأجمل بعيوني… ولا أحتاج مقارنة.", "كلمة منج تسوى ألف كلمة من غيرج.", "أخلاقج أجمل من أي زينة.", "وجهج يفرّح مثل أول يوم عيد.", "الجمال الحقيقي هو إنتي لما تضحكين من گلبج.", "تدرين شنو أحلى شي بيج؟ إنج ما تدرين قيمتج.", "إنتي القمر اللي ما ينطفي نوره.", "إنتي اللي تخلين القلوب تهدأ.", "ما أدري شلون أوصفج… الكلمات تضيع.", "إنتي لوحة حلوة مرسومة بإيد ربي.", "حنيتج تذوّب أقسى گلب.", "يا ربي شكد إنتي حلوة بكل حالاتج.", "عندج سحر خاص يخلي الكل يحبج.", "إنتي أغلى لؤلؤة بين ناسي.", "ضحكتج هي أجمل صوت بالدنيا.", "دوم تبقين مثل ما إنتي… حلوة وصادقة.", "إنتي الوردة اللي ما تذبل بگلبي.", "اشتگتلج… والله اشتگتلج.", "الحديقة بدونج ناقصة، وأنا بعد ناقصة.", "كل ما أشوف القمر أتمنى تشوفينه وياي.", "اشتگت لحجيج وضحكتج وهبالج الحلو.", "ما أحس بالأيام حلوة إذا ما كنتي بيها.", "بعدني أنتظر رسالة منج تفرحني.", "الغياب عنج صعب… والزعل أصعب.", "كل مكان صار فارغ بدونج.", "تعالي نگعد شوية نحجي مثل أول.", "اشتگت لأيام ضحكنا بيها بدون سبب.", "الليل حلو، بس أحلى لو إنتي وياي.", "كل ما أسمع أغنية حلوة أتذكرج.", "أحتاج حجيج حتى تهدأ روحي.", "ما أريد غير أشوفج مبتسمة.", "كل يوم أمر بالمكان اللي گعدنا بي وأشتگلج.", "إنتي اللي أفتگدها بكل التفاصيل.", "لو تدرين شكد أنتظر جوابج.", "أسمع صوتج حتى بالسكوت.", "اشتگتلج لدرجة صرت أحجي وياج بيني وبين نفسي.", "رجعتج هي أحلى خبر أنتظره.", "الدنيا بدونج مثل أغنية بدون لحن.", "اشتگتلج يا نص گلبي.", "كل ما أتذكر ضحكتج أبتسم لحالي.", "ماكو يوم ما فكرت بيج.", "وين ما أروح إنتي وياي بالذكرى.", "افتگدت لمّتنا ولعبنا وحجينا.", "أشتاگ إلج مثل ما تشتاگ الأرض للمطر.", "كلمة وحدة منج تكفي تصلّح يومي.", "كل شي حلو أشوفه أتمنى تشوفينه وياي.", "بعدني أحفظ آخر ضحكة ضحكتيها وياي.", "اشتگتلج أكثر ما تتخيلين.", "تعالي أحجيج شنو صار وياي هالأيام.", "الغياب عنج علّمني إني ما أنتحمل بدونج.", "خليني أسمع صوتج وبعدين أنام مرتاحة.", "صباحاتي ناقصة بدون رسالة منج.", "إذا بعدتي، أصير أدوّر عنج بكل شي.", "أنتظر ردج مثل ما تنتظر الأرض الشمس.", "يا ريت الوگت يرجع لأيام ضحكنا.", "أنا أنتظرج، مهما طالت المدة.", "كل شي بيني وبينج يستاهل الرجعة.", "شكراً لأنج وياي بكل حال.", "ممتنة لوجودج بحياتي.", "أشكر ربي كل يوم إنج صاحبتي.", "شكراً لأنج تسمعيني بدون ما تحكمين عليّ.", "كل مرة وگفتي وياي، ما أنسى فضلج.", "شكراً لحنيتج وصبرج وياي.", "إنتي سبب بعض ابتساماتي الحلوة.", "ما أنسى وگفتج بأصعب أيامي.", "جزاج الله خير على طيبتج.", "إنتي اللي علّمتيني شنو يعني صديقة حقيقية.", "شكراً لأنج تتحملين مزاجي.", "تعبتي وياي كثير، وبعدج وياي… شكراً.", "أدين لج بأحلى ذكرياتي.", "شكراً لأنج تفهمين سكوتي.", "شكراً إنج ما تخلين الزعل يهدم صداقتنا.", "كل شي حلو سويتيه وياي بگلبي للأبد.", "ما أكدر أعوّض جمايلج، بس أكدر أحبج.", "شكراً لأنج مسكتي إيدي لما تعبت.", "بيج أتعلم الصبر والحنية.", "شكراً لأنج تختارين صداقتي مرة بعد مرة.", "دعواتي إلج بالستر والفرح.", "وجودج بحياتي أحلى مصادفة.", "شكراً لأنج تضحكين على نكاتي السخيفة.", "إنتي سندي لما أضعف.", "كل الفضل بعد ربي لج بهدوئي.", "شكراً لأنج صدّگتيني لما الكل شكّ.", "ممنونة لضحكتج اللي تخلي يومي خفيف.", "الله يعوّضج خير ويفرّحج دايم.", "شكراً لأنج تبقين إنتي… بنفس الحنية.", "إنتي من النعم اللي ما أعوّضها.", "كل يوم أحبج أكثر من اليوم اللي گبله.", "ما أنسى طيبتج مهما طال الزمن.", "إنتي الأخت اللي ما ولدتها أمي.", "شكراً لأنج دايم أول من يسأل عليّ.", "صداقتنا مو صدفة، هي قدر حلو.", "وياج حتى المشاكل تصير أهون.", "الله يديمج لي ويحميج من كل شر.", "لو الدنيا ورد، إنتي أحلى بتلة بيها.", "وياج أكو أمل، وبدونج أحس بفراغ.", "أحبج… وهاي كلمة صغيرة على كبر حبي إلج."];
+let bag=[];function nextWish(){if(!bag.length)bag=WL.map((_,k)=>k).sort(()=>Math.random()-.5);return bag.pop()}
+function showWish(){const k=nextWish();$('wn').textContent='✦ كلمة رقم '+(k+1).toLocaleString('ar-EG')+' من '+WL.length.toLocaleString('ar-EG')+' ✦';$('wt').textContent=WL[k];$('wish').classList.remove('hide');buzz(15);burstH(6);sfxPick()}
+$('wsh').onclick=showWish;$('wb').onclick=e=>{e.stopPropagation();showWish()};$('wish').onclick=e=>{if(e.target.id==='wish')$('wish').classList.add('hide')};addEventListener('keydown',e=>{if(e.key==='Escape')$('wish').classList.add('hide')});
+</script>
+</body>
+</html>
